@@ -32,8 +32,9 @@ def play_music(file_path):
     st.markdown(audio_html, unsafe_allow_html=True)
 
 # --- Header / Question ---
+st.markdown("## 🌹🌹 Hola Pri 🌹🌹")
+st.markdown("### 👉 *Te quiero hacer una pregunta… pero con flores* 😌💐")
 st.markdown("## 🌹🌹 ¿Quieres ser mi San Valentín? 🌹🌹")
-st.markdown("### 👉 *Es solo una pregunta… pero con flores* 😌💐")
 st.markdown("🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹")
 #st.audio("media/quieres.mp3", autoplay=True, loop=True)
 # --- Session state ---
