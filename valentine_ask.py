@@ -1,6 +1,7 @@
 import streamlit as st
 import random
 import base64
+import datetime
 
 st.set_page_config(page_title="¿Quieres ser mi San Valentín? 💘", page_icon="🌹")
 
@@ -78,3 +79,21 @@ if st.session_state.answered:
         st.success("💘 ¡¡Tenemos San Valentín!! 💘")
         st.markdown("### 🌹 Cita confirmada 🌹")
         st.markdown("Prometo plan bonito ✨, 😌💐")
+
+        plan = st.radio(
+        "¿Qué se te antoja más? 😌",
+        ["Cenita 🍝", "Café bonito ☕", "Película 🎬", "Sorpresa 😏"])
+        st.markdown(f"✨ Perfecto… tomo nota: **{plan}**")
+
+        days = (datetime.date(2026, 2, 14) - datetime.date.today()).days
+        st.markdown(f"⏳ Faltan **{days} días**")
+
+
+
+st.markdown("""
+> *Me gusta pasar tiempo contigo  
+> y quería hacerlo especial* 💐
+""")
+
+
+
