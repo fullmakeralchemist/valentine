@@ -1,11 +1,9 @@
 import streamlit as st
 import random
-import base64
-import datetime
 
-st.set_page_config(page_title="¿Quieres ser mi San Valentín? 💘", page_icon="🌹")
+st.set_page_config(page_title="Lo Siento 💌", page_icon="💐")
 
-# --- CSS for floating flowers ---
+# --- CSS for floating flowers and text styling ---
 st.markdown("""
 <style>
 @keyframes float {
@@ -18,82 +16,60 @@ st.markdown("""
   font-size: 30px;
   animation: float 6s linear infinite;
 }
+body {
+  background: #fff0f5;
+  color: #4b0082;
+  font-family: 'Helvetica', sans-serif;
+}
+h2, h3 {
+  text-align: center;
+}
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+}
 </style>
 """, unsafe_allow_html=True)
 
-def play_music(file_path):
-    with open(file_path, "rb") as f:
-        audio_bytes = f.read()
-    audio_base64 = base64.b64encode(audio_bytes).decode()
-    audio_html = f"""
-    <audio autoplay loop>
-        <source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3">
-    </audio>
-    """
-    st.markdown(audio_html, unsafe_allow_html=True)
+# --- Floating flowers ---
+#flores = ["🌹", "🌸", "💐", "🌺", "🌷", "💖", "💘", "❤️", "✨", "😍"]
+flores = ["🌸", "🌿", "😔", "😓", "💧", "💔", "🍃", "🌷", "🌼"]
+for i in range(25):
+    st.markdown(
+        f"<div class='flower' style='left:{random.randint(0,100)}%; animation-delay:{random.random()*3}s; font-size:{random.choice([28,30,34,36])}px'>{random.choice(flores)}</div>",
+        unsafe_allow_html=True
+    )
 
-# --- Header / Question ---
-st.markdown("## 🌹🌹 Hola Pri 🌹🌹")
-st.markdown("### 👉 *Te quiero hacer una pregunta… pero con flores* 😌💐")
-st.markdown("## 🌹🌹 ¿Quieres ser mi San Valentín? 🌹🌹")
-st.markdown("🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹")
-#st.audio("media/quieres.mp3", autoplay=True, loop=True)
-# --- Session state ---
-if "answered" not in st.session_state:
-    st.session_state.answered = False
+# --- Header / Apology ---
+st.markdown("## 💌 Hola Pri 💌")
+st.markdown("### Quiero hablar desde el corazón 😔💐")
 
-# 👉 ANSWER PLACEHOLDER (RIGHT AFTER QUESTION)
-answer_area = st.empty()
-
-# --- Buttons ---
-if not st.session_state.answered:
-    col1, col2 = st.columns(2)
-
-    with col1:
-        if st.button("Sí 💖"):
-            st.session_state.answered = True
-
-    with col2:
-        if st.button("No 😅"):
-            frases = [
-                "¿Segura? 🥺🌹",
-                "Piénsalo con calma 😌",
-                "Hay flores involucradas 💐",
-                "Prometo plan bonito ✨",
-                "Última oportunidad 😏"
-            ]
-            answer_area.warning(random.choice(frases))
-
-# --- YES RESULT (shows under the question) ---
-if st.session_state.answered:
-    with answer_area.container():
-        st.balloons()
-
-        flores = ["🌹", "🌸", "💐", "🌺", "🌷", "💖", "💘", "❤️", "✨", "😍"]
-        for i in range(25):
-            st.markdown(
-                f"<div class='flower' style='left:{random.randint(0,100)}%; animation-delay:{random.random()*3}s; font-size:{random.choice([28,30,34])}px'>{random.choice(flores)}</div>",
-                unsafe_allow_html=True
-            )
-        play_music("media/quieres.mp3")
-        st.success("💘 ¡¡Tenemos San Valentín!! 💘")
-        st.markdown("### 🌹 Cita confirmada 🌹")
-        st.markdown("Prometo plan bonito ✨, 😌💐")
-
-        plan = st.radio(
-        "¿Qué se te antoja más? 😌",
-        ["Cenita 🍝", "Café bonito ☕", "Película 🎬", "Sorpresa 😏"])
-        st.markdown(f"✨ Perfecto… tomo nota: **{plan}**")
-
-        days = (datetime.date(2026, 2, 14) - datetime.date.today()).days
-        st.markdown(f"⏳ Faltan **{days} días**")
-
-
-
+# --- Apology Text ---
 st.markdown("""
-> *Me gusta pasar tiempo contigo  
-> y quería hacerlo especial* 💐
+Querida Pri,  
+
+Quiero sinceramente disculparme por mi comportamiento este fin de semana.  
+Fui egoísta, intolerante y dejé que el miedo de perderte consumiera mis acciones y palabras.  
+Sé que actué mal y que lo que dije estuvo muy mal; lamento haberte herido y hacerte sentir tan mal estos días.  
+Tú mereces algo mejor.  
+
+No quiero justificarme, pero sí quiero que sepas que mi miedo a perderte me cegó y me hizo actuar de una forma que no refleja quién realmente quiero ser.  
+
+Sé que tal vez no pueda recuperar lo que tuvimos, pero quiero que sepas que estoy dispuesto a poner esfuerzo para cambiar y ser mejor.  
+Aunque tú ya no estés conmigo, voy a buscar ser la mejor versión de mí mismo, la versión que siempre quise ser contigo.  
+Deseo aprender de mis errores, crecer y demostrar con acciones que puedo ser alguien que merezca tu confianza y cariño, aunque ya no quieras estar en mi vida.  
+
+No hay excusa para lastimarte con mi comportamiento, y lamento profundamente haber generado tristeza y frustración.  
+Ojalá puedas sentir en estas palabras mi arrepentimiento y mi deseo sincero de enmendar lo que hice.  
+Estos días he estado pensando en todo lo que vivimos juntos y en lo que quería vivir contigo, y sólo puedo sentir tristeza y arrepentimiento por haber perdido todo por no saber manejar mis emociones.  
+
+Quisiera poder **volver al inicio**, entender lo que salió mal y arreglarlo, porque como dice la canción The Scientist de Coldplay, “nobody said it was easy” y me doy cuenta de que el tiempo y mis errores me han enseñado mucho.  
+Quisiera **dar marcha atrás** y hacerlo todo bien, pero mientras tanto sigo aprendiendo y buscando ser mejor.  
+
+Gracias por tomarte el tiempo de leer esto. Gracias por el tiempo que compartimos; nunca dejarás de ser el amor de mi vida ni dejaré de amarte.  
+Espero que algún día pueda tener la oportunidad de que todo vuelva a ser como antes. Sé que estoy pidiendo mucho, pero la verdad es que no quiero vivir una vida sin ti. Mientras tanto, seguiré trabajando para ser la mejor versión de mí mismo.  
+
+Con todo mi respeto, amor y cariño,  
+Lalo 💖
 """)
-
-
-
