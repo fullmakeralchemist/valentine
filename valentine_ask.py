@@ -11,7 +11,6 @@ frases = [
     "Eres lo mejor que me ha pasado 💖",
     "Cada día contigo es mi favorito 🌹",
     "Tu sonrisa ilumina mi mundo ✨",
-    "No sabía lo que era amor hasta que te conocí ❤️",
     "Contigo todo tiene sentido 💕",
     "Eres mi lugar favorito en el mundo 🌎",
     "Me encantas más de lo que las palabras pueden decir 😍",
